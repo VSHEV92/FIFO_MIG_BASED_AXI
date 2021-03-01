@@ -1,0 +1,24 @@
+{
+  
+signal: [
+  {name: 'ACLK',              wave: 'p.....|.....'},
+  {name: 'INFIFO_TREADY',     wave: '0.....|.....'},
+  {name: 'OUTFIFO_TVALID',    wave: '0.....|.....'},
+  {name: 'WVALID',            wave: '0.....|.....'},
+  {name: 'AWVALID',           wave: '0.....|.....'},
+  {name: 'BVALID',            wave: '0.10..|.....', node:'..3'},
+  {name: 'BREADY',            wave: '1..0..|.....'},
+  {name: 'WR_DELAY_COUNTER',  wave: 'xxx===|==x..', data: ['DEL_VAL', 'DEL_VAL-1','','1','0'], node:'........1'},
+  {name: 'FSM_STATE',         wave: '=..=..|..===', data: ['WAIT_RESP', 'DELAY_WR', 'CHECK_RD','CHECK_WD'], node:'...4.....2'}
+  
+],
+  
+edge: ['1~>2', '3~>4'],
+  
+head:{
+   text:'Канал WRITE RESPONSE'
+ },
+  
+config: { hscale: 3 }  
+
+}

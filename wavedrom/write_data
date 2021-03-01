@@ -1,0 +1,19 @@
+{signal: [
+  {name: 'ACLK',           		wave: 'p......|...'},
+  {name: 'IN_TDATA',          	wave: '=..==.=|==.', data: ['DATA1', 'DATA2', 'DATA3', '', 'DATA_WR_CNT', '']},
+  {name: 'IN_TVALID',         	wave: '1......|...'},
+  {name: 'IN_TREADY',         	wave: '0.1.01.|.0.', node: '..8.2....c'},
+  {name: 'IN_WR_COUNT',         wave: '=.x....|...', data: ['VAL!=0']},
+  {name: 'WDATA',               wave: 'x.===.=|=x.', data: ['DATA1', 'DATA2', 'DATA3', '', 'DATA_WR_CNT', '']},
+  {name: 'WVALID',              wave: '0.1....|.0.', node: '..9......b'},
+  {name: 'WREADY',              wave: 'x.1.01.|...', node: '....1.....'},
+  {name: 'WLAST',               wave: 'x.0....|1x.'},
+  {name: 'MEM_WR_COUNT', 		wave: '=..==.=|==.', data: ['MEM_WCNT!=0', 'MEM_WCNT-1', 'MEM_WCNT-2', '', 'MEM..WCNT+1', 'MEM_WCNT-WR_CNT']},
+  {name: 'MEM_RD_COUNT', 		wave: '=..==.=|==.', data: ['MEM_RCNT', 'MEM_RCNT+1', 'MEM_RCNT+2', '', 'MEM..RCNT-1', 'MEM_RCNT+WR_CNT']},
+  {name: 'WR_COUNTER', 			wave: 'x.===.=|==.', data: ['WR_CNT','WR_CNT-1','WR_CNT-2','','1','0'], node: '........3..'}, 
+  {name: 'FSM_STATE',           wave: 'x==....|==.', data: ['CHECK_WR', 'WR/WR_AW', 'WR_LAST/WR_AW_LAST', 'WAIT_AW/WAIT_RESP'], node: '.7.......5..'}
+],
+edge: ['1~>2','3~>4', '3~>b', '3~>c', '7~>8', '7~>9', '7~>a'],
+config: { hscale: 3 },
+head:{text: 'Канал WRITE DATA'},
+}

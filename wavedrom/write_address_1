@@ -1,0 +1,14 @@
+{signal: [
+  {name: 'ACLK',            	wave: 'p...|....'},
+  {name: 'IN_WR_COUNT',         wave: '=.x.|....', data: ['VAL!=0']},
+  {name: 'AWLEN',               wave: 'x.=.|....', data: ['WR_CNT ']},
+  {name: 'AWADDR',              wave: 'x.=.|....', data: ['MEM_WR_ADDR', 'MEM_WR_ADDR', 'MEM_WR_ADDR', 'MEM_WR_ADDR', '', 'MEM_WR_ADDR'], node: '..2......'},
+  {name: 'AWVALID',             wave: 'x.1.|..0.'},
+  {name: 'AWREADY',             wave: 'x.0.|.1x.', node: '......3'},
+  {name: 'MEM_WR_ADDR', 		wave: '=...|..=.', data: ['MEM_WADDR', 'NEXT MEM_WADDR'], node: '.......4'},
+  {name: 'FSM_STATE',           wave: 'x==.|=.=.', data: ['CHECK_WR', 'WR/WR_LAST', 'WAIT_AW', 'WAIT_RESP'], node: '.1.....5.'}
+],
+edge: ['1~>2','3~>4', '3~>5'],
+config: { hscale: 3 },
+head:{text: 'Канал ADDRESS WRITE Вариант 1'},
+}

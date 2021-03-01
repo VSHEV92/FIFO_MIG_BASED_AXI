@@ -1,0 +1,23 @@
+{
+  
+signal: [
+  {name: 'ACLK',              wave: 'p...|.....'},
+  {name: 'INFIFO_TREADY',     wave: '0...|.....'},
+  {name: 'OUTFIFO_TVALID',    wave: '0...|.....'},
+  {name: 'AWVALID',           wave: '0...|.....'},
+  {name: 'ARVALID',           wave: '0...|.....'},
+  {name: 'WVALID',            wave: '0...|.....'},
+  {name: 'RD_DELAY_COUNTER',  wave: 'x===|==x..', data: ['DEL_VAL', 'DEL_VAL-1','','1','0'], node:'......1'},
+  {name: 'FSM_STATE',         wave: '==..|..===', data: ['RD', 'DELAY_RD', 'CHECK_WR','CHECK_RD'], node:'.......2'}
+  
+],
+  
+edge: ['1~>2'],
+  
+head:{
+   text:'Окончание чтения из памяти'
+ },
+  
+config: { hscale: 3 }  
+
+}
