@@ -7,6 +7,7 @@
 module Fifo_MIG_Based_tb();
 
 localparam int TDATA_WIDTH = MIG_Port_Size;
+localparam Max_Address = Base_Address + Memory_Size * (MIG_Port_Size / 8);
 
 logic   rst_n, ck, ck_n, cke, ras_n, cas_n, we_n, odt;
 tri     [1:0]  dm_tdqs, dqs, dqs_n;
@@ -112,6 +113,18 @@ final begin
     $fclose(f_result);    
 end 
 
+// --------------------------------------------------------------------------------------------
+assert property (@aclk (MIG_Port_AWADDR < Max_Address) || $isunknown(MIG_Port_AWADDR) ) else
+	$fatal("AWADDR is greater then Max_Address. AWADDR = %0h. Max_Address = %0h.", MIG_Port_AWADDR, Max_Address);
+
+assert property (@aclk (MIG_Port_AWADDR >= Base_Address) || $isunknown(MIG_Port_AWADDR) ) else
+	$fatal("AWADDR is less then Base_Address. AWADDR = %0h. Base_Address = %0h.", MIG_Port_AWADDR, Base_Address);
+
+assert property (@aclk (MIG_Port_ARADDR < Max_Address) || $isunknown(MIG_Port_ARADDR) ) else
+	$fatal("ARADDR is greater then Max_Address. ARADDR = %0h. Max_Address = %0h.", MIG_Port_ARADDR, Max_Address);
+
+assert property (@aclk (MIG_Port_ARADDR >= Base_Address) || $isunknown(MIG_Port_ARADDR) ) else
+	$fatal("ARADDR is less then Base_Address. ARADDR = %0h. Base_Address = %0h.", MIG_Port_ARADDR, Base_Address);
 
 // --------------------------------------------------------------------------------------------
 // проверяемый блок

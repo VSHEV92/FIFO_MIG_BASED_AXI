@@ -1242,10 +1242,10 @@ STATE = WR_AW_LAST<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:Label
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="190.24878032020854" width="395.3395069229027" x="-304.0511561045855" y="-1234.8674244250656"/>
+              <y:Geometry height="198.86393403374575" width="403.9703662979027" x="-304.89558617639153" y="-1226.2522707115281"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="395.3395069229027" x="0.0" xml:space="preserve" y="0.0">Счетчик адреса записи</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="403.9703662979027" x="0.0" xml:space="preserve" y="0.0">Счетчик адреса записи</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -1268,7 +1268,7 @@ STATE = WR_AW_LAST<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:Label
         <node id="n8::n0">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="60.0" width="147.91550364963507" x="-238.7947740460229" y="-1119.618644104857"/>
+              <y:Geometry height="60.0" width="147.91550364963507" x="-238.7947740460229" y="-1102.3883366777825"/>
               <y:Fill color="#FFCC00" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.337890625" x="24.288806512317535" xml:space="preserve" y="20.6494140625">MEM_WR_ADDR<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1279,13 +1279,14 @@ STATE = WR_AW_LAST<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:Label
         <node id="n8::n1">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-283.4597375496726" y="-1154.6639438422642"/>
+              <y:Geometry height="30.0" width="30.0" x="-283.4597375496726" y="-1137.4336364151898"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="363.77734375" x="-5.591418554912877" xml:space="preserve" y="-36.80468749999977">Reset Val: BASE_ADDRESS
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="372.408203125" x="-6.435848626718894" xml:space="preserve" y="-45.419841213536984">Reset Val: BASE_ADDRESS
 Enable: AWREADY &amp; AWVALID
-Max Val : BASE_ADDRESS + (MEM_SIZE - 1) * MIG_Port_Size / 8
-Inc: WR_COUNT_REG * MIG Data Port Size/8 <y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.4021615304900008" labelRatioY="0.08601816146286667" nodeRatioX="0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+Max Val : BASE_ADDRESS + MEM_SIZE * Bytes_in_Word
+Inc: WR_COUNT_REG * Bytes_in_Word 
+ADDR_WR_SPACE = (Max val - MEM_WR_ADDR) / Bytes_in_Word<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.4021615304900008" labelRatioY="0.08601816146286667" nodeRatioX="0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
               <y:Shape type="rectangle3d"/>
             </y:ShapeNode>
           </data>
@@ -1298,17 +1299,17 @@ Inc: WR_COUNT_REG * MIG Data Port Size/8 <y:LabelModel><y:SmartNodeLabelModel di
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="190.248780320209" width="393.77734375" x="-304.05115610458546" y="-1440.1162047452744"/>
+              <y:Geometry height="198.86393403374632" width="400.421875" x="-300.0737930100911" y="-1440.1162047452744"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="393.77734375" x="0.0" xml:space="preserve" y="0.0">Счетчик адреса чтения</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="400.421875" x="0.0" xml:space="preserve" y="0.0">Счетчик адреса чтения</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="6" topF="6.022328239051717"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="6" topF="6.022328239051831"/>
             </y:GroupNode>
             <y:GroupNode>
-              <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
+              <y:Geometry height="50.0" width="50.0" x="-300.2681323137857" y="-1440.1162047452744"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="59.02685546875" x="-4.513427734375" xml:space="preserve" y="0.0">Folder 2</y:NodeLabel>
@@ -1324,7 +1325,7 @@ Inc: WR_COUNT_REG * MIG Data Port Size/8 <y:LabelModel><y:SmartNodeLabelModel di
         <node id="n9::n0">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="60.0" width="147.91550364963507" x="-238.7947740460229" y="-1324.8674244250656"/>
+              <y:Geometry height="60.0" width="147.91550364963507" x="-234.16732018341713" y="-1316.2522707115281"/>
               <y:Fill color="#FFCC00" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="96.677734375" x="25.618884637317535" xml:space="preserve" y="20.6494140625">MEM_RD_ADDR<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1335,13 +1336,14 @@ Inc: WR_COUNT_REG * MIG Data Port Size/8 <y:LabelModel><y:SmartNodeLabelModel di
         <node id="n9::n1">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-283.4597375496726" y="-1359.912724162473"/>
+              <y:Geometry height="30.0" width="30.0" x="-278.8322836870668" y="-1351.2975704489356"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="363.77734375" x="-5.591418554912877" xml:space="preserve" y="-36.80468749999977">Reset Val: BASE_ADDRESS
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="370.421875" x="-6.241509323024275" xml:space="preserve" y="-45.419841213536984">Reset Val: BASE_ADDRESS
 Enable: ARREADY &amp; ARVALID
-Max Val : BASE_ADDRESS + (MEM_SIZE - 1) * MIG_Port_Size / 8
-Inc: RD_COUNT_REG * MIG Data Port Size/8 <y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.4021615304900008" labelRatioY="0.08601816146286667" nodeRatioX="0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+Max Val : BASE_ADDRESS + MEM_SIZE * Bytes_in_Word 
+Inc: RD_COUNT_REG * Bytes_in_Word
+ADDR_RD_SPACE = (Max val - MEM_RD_ADDR) / Bytes_in_Word <y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.4021615304900008" labelRatioY="0.08601816146286667" nodeRatioX="0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
               <y:Shape type="rectangle3d"/>
             </y:ShapeNode>
           </data>
@@ -1490,7 +1492,7 @@ Enable Dec: STATE = DELAY_RD | DELAY_RD<y:LabelModel><y:SmartNodeLabelModel dist
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="597.3644835117334" width="393.77734375" x="-304.0511561045856" y="-1035.8051074032364"/>
+              <y:Geometry height="603.7668272617334" width="393.77734375" x="-297.74066634705116" y="-1008.6024494520117"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="393.77734375" x="0.0" xml:space="preserve" y="0.0">Счетчик и регистры числа слов для записи и чтения </y:NodeLabel>
@@ -1516,7 +1518,7 @@ Enable Dec: STATE = DELAY_RD | DELAY_RD<y:LabelModel><y:SmartNodeLabelModel dist
         <node id="n12::n0">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="60.0" width="147.91550364963507" x="-180.0920591352231" y="-859.0717390070703"/>
+              <y:Geometry height="60.0" width="147.91550364963507" x="-173.7815693776887" y="-815.4667373058455"/>
               <y:Fill color="#FFCC00" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="89.998046875" x="28.958728387317535" xml:space="preserve" y="20.6494140625">WR_COUNTER<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1527,12 +1529,12 @@ Enable Dec: STATE = DELAY_RD | DELAY_RD<y:LabelModel><y:SmartNodeLabelModel dist
         <node id="n12::n1">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-240.0920591352231" y="-894.117038744478"/>
+              <y:Geometry height="30.0" width="30.0" x="-233.7815693776887" y="-850.5120370432533"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="199.08203125" x="10.522118755558154" xml:space="preserve" y="-28.18953378646279">Load Val: WR_COUNT_LOAD
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="199.08203125" x="18.528777885223747" xml:space="preserve" y="-24.0517578125">Load Val: WR_COUNT_LOAD
 Load Enable: STATE = CHECK_WR
-Enable Dec: WREADY &amp; WVALID<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.4021615304900008" labelRatioY="0.08601816146286667" nodeRatioX="0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+Enable Dec: WREADY &amp; WVALID<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.4423794199669828" labelRatioY="0.0" nodeRatioX="0.5" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
               <y:Shape type="rectangle3d"/>
             </y:ShapeNode>
           </data>
@@ -1540,7 +1542,7 @@ Enable Dec: WREADY &amp; WVALID<y:LabelModel><y:SmartNodeLabelModel distance="4.
         <node id="n12::n2">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="7.047143895414536" y="-974.3768847469863"/>
+              <y:Geometry height="30.0" width="30.0" x="13.357633652948948" y="-940.7718830457616"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="112.6796875" x="-45.00064375000008" xml:space="preserve" y="-9.3505859375">WR_COUNT_LOAD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="-0.12202666666666934" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1551,7 +1553,7 @@ Enable Dec: WREADY &amp; WVALID<y:LabelModel><y:SmartNodeLabelModel distance="4.
         <node id="n12::n3">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.flowchart.cloud">
-              <y:Geometry height="50.0" width="80.0" x="-115.1615561045856" y="-984.3768847469863"/>
+              <y:Geometry height="50.0" width="80.0" x="-108.85106634705119" y="-950.7718830457616"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="25.99609375" x="27.001953125" xml:space="preserve" y="15.6494140625">MIN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.5" labelRatioY="0.0" nodeRatioX="0.1624755859375" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1561,12 +1563,13 @@ Enable Dec: WREADY &amp; WVALID<y:LabelModel><y:SmartNodeLabelModel distance="4.
         <node id="n12::n4">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-168.49736357593014" y="-974.3768847469863"/>
+              <y:Geometry height="30.0" width="30.0" x="-162.18687381839572" y="-940.7718830457616"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="107.998046875" x="-53.9990234375" xml:space="preserve" y="-9.0517578125">IN_WR_COUNT
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="112.0234375" x="-56.01171875" xml:space="preserve" y="-16.40234375">IN_WR_COUNT
 MEM_WR_COUNT
-MAX_BUSRT_LEN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+MAX_BUSRT_LEN
+ADDR_WR_SPACE<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
               <y:Shape type="rectangle3d"/>
             </y:ShapeNode>
           </data>
@@ -1574,7 +1577,7 @@ MAX_BUSRT_LEN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel
         <node id="n12::n5">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="60.0" width="147.91550364963507" x="-186.14751197873977" y="-723.7665932671542"/>
+              <y:Geometry height="60.0" width="147.91550364963507" x="-179.83702222120536" y="-690.1615915659295"/>
               <y:Fill color="#FFCC00" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.67578125" x="12.619861199817535" xml:space="preserve" y="20.6494140625">WR_COUNTER_REG<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1585,7 +1588,7 @@ MAX_BUSRT_LEN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel
         <node id="n12::n6">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-246.14751197873977" y="-748.6607331215066"/>
+              <y:Geometry height="30.0" width="30.0" x="-239.83702222120536" y="-715.0557314202819"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="199.08203125" x="10.522118755558154" xml:space="preserve" y="-19.574380072925692">Load Val: WR_COUNT_LOAD
@@ -1597,7 +1600,7 @@ Load Enable: STATE = CHECK_WR<y:LabelModel><y:SmartNodeLabelModel distance="4.0"
         <node id="n12::n7">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="60.0" width="147.91550364963507" x="-186.14751197873977" y="-513.440623891503"/>
+              <y:Geometry height="60.0" width="147.91550364963507" x="-179.83702222120536" y="-479.8356221902783"/>
               <y:Fill color="#FFCC00" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="120.015625" x="13.949939324817535" xml:space="preserve" y="20.6494140625">RD_COUNTER_REG<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1608,7 +1611,7 @@ Load Enable: STATE = CHECK_WR<y:LabelModel><y:SmartNodeLabelModel distance="4.0"
         <node id="n12::n8">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-246.14751197873977" y="-538.3347637458554"/>
+              <y:Geometry height="30.0" width="30.0" x="-239.83702222120536" y="-504.72976204463066"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="196.421875" x="10.782384371715636" xml:space="preserve" y="-19.574380072925692">Load Val: RD_COUNT_LOAD
@@ -1620,7 +1623,7 @@ Load Enable: STATE = CHECK_RD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"
         <node id="n12::n9">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="7.047143895414536" y="-608.6301340621085"/>
+              <y:Geometry height="30.0" width="30.0" x="-4.292514749860629" y="-590.1615915659295"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.01953125" x="-43.67056562500008" xml:space="preserve" y="-9.3505859375">RD_COUNT_LOAD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="-0.12202666666666934" nodeRatioY="-0.5" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1631,7 +1634,7 @@ Load Enable: STATE = CHECK_RD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"
         <node id="n12::n10">
           <data key="d6">
             <y:GenericNode configuration="com.yworks.flowchart.cloud">
-              <y:Geometry height="50.0" width="80.0" x="-115.1615561045856" y="-618.6301340621085"/>
+              <y:Geometry height="50.0" width="80.0" x="-126.50121474986076" y="-600.1615915659295"/>
               <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="25.99609375" x="27.001953125" xml:space="preserve" y="15.6494140625">MIN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.5" labelRatioY="0.0" nodeRatioX="0.1624755859375" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -1641,12 +1644,13 @@ Load Enable: STATE = CHECK_RD<y:LabelModel><y:SmartNodeLabelModel distance="4.0"
         <node id="n12::n11">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="30.0" x="-168.4973635759302" y="-608.6301340621085"/>
+              <y:Geometry height="30.0" width="30.0" x="-179.83702222120536" y="-590.1615915659295"/>
               <y:Fill hasColor="false" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="107.365234375" x="-53.6826171875" xml:space="preserve" y="-9.0517578125">OUT_RD_SPACE
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="109.36328125" x="-54.681640625" xml:space="preserve" y="-16.40234375">OUT_RD_SPACE
 MEM_RD_COUNT
-MAX_BUSRT_LEN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+MAX_BUSRT_LEN
+ADDR_RD_SPACE<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="-0.5" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
               <y:Shape type="rectangle3d"/>
             </y:ShapeNode>
           </data>
@@ -1708,9 +1712,9 @@ MAX_BUSRT_LEN<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="131.681640625" x="-277.0548216196323" xml:space="preserve" y="-24.05180279927731">(IN_WR_COUNT &gt; 1 &amp;
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="131.681640625" x="-277.0548216196323" xml:space="preserve" y="-54.05180279927731">(IN_WR_COUNT &gt; 1 &amp;
 Max_Burst_Len &gt; 1)  &amp;
- MEM_WR_COUNT &gt; 0<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+ MEM_WR_COUNT &gt; 0<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -2359,7 +2363,6 @@ RLAST<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAng
       </data>
     </edge>
     <edge id="n0::e25" source="n0::n1" target="n0::n9">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -2367,16 +2370,17 @@ RLAST<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAng
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="128.34765625" x="-202.80859951227944" xml:space="preserve" y="37.38401657056397">(IN_WR_COUNT = 1 |
-Max_Burst_Len = 1 &amp;
-IN_WR_COUNT) &amp;
-MEM_WR_COUNT &gt; 0<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.643727465160774" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="92.20703125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="147.70703125" x="-180.61272569232926" xml:space="preserve" y="8.68360471525375">(IN_WR_COUNT = 1 |
+(ADDR_WR_SPACE = 1 &amp;
+IN_WR_COUNT) |
+(Max_Burst_Len = 1 &amp;
+IN_WR_COUNT) ) &amp;
+MEM_WR_COUNT &gt; 0<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.27809200352547114" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
           <y:Arc height="-58.77731704711914" ratio="-0.5197461843490601" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
     <edge id="n0::e26" source="n0::n5" target="n0::n5">
-      <data key="d9"/>
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">

@@ -71,19 +71,30 @@ module Fifo_Control
 );
 
 // максимальный адрес памяти
-localparam Max_Address = Base_Address + (Memory_Size - 1) * MIG_Port_Size / 8;
-localparam Transfer_Size = $clog2(MIG_Port_Size/8); 
+localparam Max_Address = Base_Address + Memory_Size * (MIG_Port_Size / 8);
+localparam Bytes_in_Word = MIG_Port_Size / 8;
+localparam Transfer_Size = $clog2(MIG_Port_Size / 8); 
 
 // вычисление минимального значения
-function automatic logic [31:0] min_func (logic [31:0] mem_space, logic [31:0] fifo_space);
+function automatic logic [31:0] min_func (logic [31:0] mem_space, logic [31:0] fifo_space, logic [31:0] addr_space);
+    logic [31:0] min_val_1;
+    logic [31:0] min_val_2;
     logic [31:0] min_val;
-    if (mem_space > fifo_space)
-        min_val = fifo_space;
-    else
-        min_val = mem_space;
 
-    if (min_val > Max_Burst_Len)
-        min_val = Max_Burst_Len;
+    if (mem_space > fifo_space)
+        min_val_1 = fifo_space;
+    else
+        min_val_1 = mem_space;
+
+    if (Max_Burst_Len > addr_space)
+        min_val_2 = addr_space;
+    else
+        min_val_2 = Max_Burst_Len;
+
+    if (min_val_1 > min_val_2)
+        min_val = min_val_2;
+    else
+        min_val = min_val_1;
 
     return min_val;
 endfunction 
@@ -94,6 +105,8 @@ enum {INIT, CHECK_WR, CHECK_RD, WR, WR_AW, WR_LAST, WR_AW_LAST, WAIT_LAST, WAIT_
 logic int_resetn;
 
 logic [31:0] out_Rd_space;
+logic [31:0] addr_Rd_space;
+logic [31:0] addr_Wr_space;
 
 logic [31:0] Mem_Wr_Addr, Mem_Rd_Addr;            // адрес записи и чтения
 logic [31:0] Wr_Counter;                          // счетчик оставшихся данных для записи
@@ -173,7 +186,7 @@ always_ff @(posedge aclk) begin : fsm_block
             State <= (init_calib) ? CHECK_WR : INIT;
 
         CHECK_WR :  // проверка возможности записи 
-            if (Mem_Wr_Counter && (in_wr_count == 1 || (Max_Burst_Len == 1 && in_wr_count)))
+            if (Mem_Wr_Counter && (in_wr_count == 1 || (addr_Wr_space == 1 && in_wr_count) || (Max_Burst_Len == 1 && in_wr_count)))
                 State <= WR_LAST;
             else if (Mem_Wr_Counter && (in_wr_count > 1 && Max_Burst_Len > 1))
                 State <= WR;
@@ -235,8 +248,8 @@ always_ff @(posedge aclk) begin : fsm_block
 end
 
 // ---------------------------------------------------------------------------------
-// счетчик числа слов для записи
-assign wr_count_load = min_func(Mem_Wr_Counter, in_wr_count);
+// счетчик числа слов для записи и чтения
+assign wr_count_load = min_func(Mem_Wr_Counter, in_wr_count, addr_Wr_space);
 always_ff @(posedge aclk)
     if (State == CHECK_WR)
         Wr_Counter <= wr_count_load;
@@ -247,30 +260,32 @@ always_ff @(posedge aclk)
     if (State == CHECK_WR)
         Wr_Counter_Reg <= wr_count_load;
 
-assign rd_count_load = min_func(Mem_Rd_Counter, out_Rd_space);
+assign rd_count_load = min_func(Mem_Rd_Counter, out_Rd_space, addr_Rd_space);
 always_ff @(posedge aclk)
     if (State == CHECK_RD)
         Rd_Counter_Reg <= rd_count_load;
 
 // ---------------------------------------------------------------------------------
 // счетчик адресов записи
+assign addr_Wr_space = (Max_Address - Mem_Wr_Addr) / Bytes_in_Word;
 always_ff @(posedge aclk)
     if(!int_resetn)
         Mem_Wr_Addr <= Base_Address;
     else if (MIG_Port_AWREADY && MIG_Port_AWVALID) begin
-        Mem_Wr_Addr <= Mem_Wr_Addr + Wr_Counter_Reg * MIG_Port_Size / 8;
-        if (Mem_Wr_Addr == Max_Address)
+        Mem_Wr_Addr <= Mem_Wr_Addr + Wr_Counter_Reg * Bytes_in_Word;
+        if (Mem_Wr_Addr + Wr_Counter_Reg * Bytes_in_Word == Max_Address)
             Mem_Wr_Addr <= Base_Address;
     end
 
 // // ---------------------------------------------------------------------------------
 // счетчик адресов чтения
+assign addr_Rd_space = (Max_Address - Mem_Rd_Addr) / Bytes_in_Word;
 always_ff @(posedge aclk)
     if(!int_resetn)
         Mem_Rd_Addr <= Base_Address;
     else if (MIG_Port_ARREADY && MIG_Port_ARVALID) begin
-        Mem_Rd_Addr <= Mem_Rd_Addr + Rd_Counter_Reg * MIG_Port_Size / 8;
-        if (Mem_Rd_Addr == Max_Address)
+        Mem_Rd_Addr <= Mem_Rd_Addr + Rd_Counter_Reg * Bytes_in_Word;
+        if (Mem_Rd_Addr + Rd_Counter_Reg * Bytes_in_Word == Max_Address)
             Mem_Rd_Addr <= Base_Address;
     end
 
